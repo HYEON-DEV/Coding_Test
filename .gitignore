@@ -1,0 +1,7 @@
+.vscode
+*.class
+bin
+lib
+App.java
+.gitattributes
+README.md
