@@ -14,7 +14,7 @@ public class 프로그래머스_배열조각하기 {
             int[] answer = {};
 
             for (int i=0; i<query.length; i++) {  //  n
-                if (query[i]%2==0) {
+                if (i%2==0) {
                     arr = Arrays.copyOfRange(arr, 0, query[i]+1);   //  n
                 } else {
                     arr = Arrays.copyOfRange(arr, query[i], arr.length);  //  n
@@ -30,7 +30,6 @@ public class 프로그래머스_배열조각하기 {
     public static void main(String[] args) {
         int[] arr = {0,1,2,3,4,5};
         int[] query = {4,1,2};
-        // Solution s = new Solution();
         Solution s = new 프로그래머스_배열조각하기().new Solution();
         System.out.println(Arrays.toString(s.solution(arr,query)));
     }

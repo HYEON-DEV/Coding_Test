@@ -4,13 +4,14 @@ public class 프로그래머스_자연수뒤집어배열로만들기 {
     
     class Solution {
         public int[] solution(long n) {
-            int[] answer = {};
+            String str = String.valueOf(n);
+            int end = str.length();
+            int[] answer = new int[end];            
 
-            int end = String.valueOf(n).length();
-
-            for(int i=0; i<end-i; i++) {
-                
+            for(int i=0; i<end; i++) {
+                answer[i] = Character.getNumericValue(str.charAt(end-i-1));
             }
+            System.out.println(end);
 
             return answer;
         }
