@@ -24,12 +24,7 @@ public class 프로그래머스_짝지어제거하기 {
             }
         }
 
-        if(stack.isEmpty()) {
-            return 1;
-        } else {
-            return 0;
-        }
-        
+        return stack.isEmpty()? 1 : 0;        
     }
 
     public static void main(String[] args) {
