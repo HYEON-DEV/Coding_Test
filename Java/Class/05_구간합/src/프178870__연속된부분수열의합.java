@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class 프178870_연속된부분수열의합 {
+public class 프178870__연속된부분수열의합 {
 
     public int[] solution(int[] sequence, int k) {
         int[] prefixsum = new int[sequence.length+1];
@@ -31,7 +31,7 @@ public class 프178870_연속된부분수열의합 {
     }
 
     public static void main(String[] args) {
-        프178870_연속된부분수열의합 s = new 프178870_연속된부분수열의합();
+        프178870__연속된부분수열의합 s = new 프178870__연속된부분수열의합();
         System.out.println(Arrays.toString(s.solution(new int[]{1,2,3,4,5}, 7)));
         System.out.println(Arrays.toString(s.solution(new int[]{1,1,1,2,3,4,5}, 5)));
         System.out.println(Arrays.toString(s.solution(new int[]{2,2,2,2,2}, 6)));
