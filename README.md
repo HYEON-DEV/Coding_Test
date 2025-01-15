@@ -1,0 +1,4 @@
+- 자료구조, 알고리즘 공부
+- 프로그래머스, 백준 문제 풀기
+- 블로그에 개념 정리, 문제 풀이 정리
+- 💻 [Blog](https://iamsh.tistory.com/category/IT/Algorithm%20%7C%20Coding%20Test)
