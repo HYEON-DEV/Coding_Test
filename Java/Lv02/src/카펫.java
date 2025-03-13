@@ -19,11 +19,11 @@ public class 카펫 {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(solution(10, 2)));    // 2*1 => 2*2 + 1*2 + 4 => [2+2, 1+2]
+        System.out.println(Arrays.toString(solution(10,2)));    // 2*1 => 2*2 + 1*2 + 4 => [2+2, 1+2]
         System.out.println(Arrays.toString(solution(8,1)));      // 1*1 => 1*2 + 1*2 + 4 => [1+2, 1+2]
         System.out.println(Arrays.toString(solution(24,24)));    // 6*4 => 6*2 + 4*2 + 4 => [6+2, 4+2]
         // 24-4=20, 20/2=10, 가로+세로=10
-        //1*9 2*8 3*7    "4*6"
+        // 1*9 2*8 3*7    "4*6"
         /*
         row + col = (brown-4)/2
         row * col = yellow
