@@ -21,7 +21,7 @@ public class 귤고르기_2 {
         List<Integer> keyList = new ArrayList<>(map.keySet());
         // System.out.println(keyList);
         keyList.sort( (o1,o2) -> map.get(o2) - map.get(o1) );
-        // System.out.println(keyList);
+        System.out.println(keyList);
 
         for (Integer i : keyList) {
             if (k <= 0) {

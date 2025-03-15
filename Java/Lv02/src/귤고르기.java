@@ -22,7 +22,7 @@ public class 귤고르기 {
 
         ArrayList<Integer> valueList = new ArrayList<>(map.values());
         Collections.sort(valueList, Collections.reverseOrder());
-        // System.out.println(valueList);
+        System.out.println(valueList);
 
         for(int v : valueList) {
             if (sum+v >= k) {
