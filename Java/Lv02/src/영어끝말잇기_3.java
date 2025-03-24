@@ -34,7 +34,7 @@ public class 영어끝말잇기_3 {
         }
         System.out.println();
         System.out.println("(" + answer[0] + ", " + answer[1] + ")");
-
+        
         return answer;
     }
 
