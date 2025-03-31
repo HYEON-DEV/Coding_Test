@@ -1,6 +1,6 @@
 import Java.helpers.BenchmarkHelper;
 
-public class 괄호회전하기_test {
+public class test_괄호회전하기 {
     
     public static void main(String[] args) {
         String s = "[](){}[](){}[](){}[](){}[](){}[](){}[](){}[](){}[](){}[](){}";

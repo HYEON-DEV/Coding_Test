@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class 할인행사 {
-    public static int solution(String[] want, int[] number, String[] discount) {
+    public int solution(String[] want, int[] number, String[] discount) {
         int answer = 0;
         int days = 10;
 
@@ -34,6 +34,7 @@ public class 할인행사 {
         return answer;
     }
     public static void main(String[] args) {
-        System.out.println(solution(new String[] {"banana", "apple", "rice", "pork", "pot"}, new int[] {3, 2, 2, 2, 1}, new String[] {"chicken", "apple", "apple", "banana", "rice", "apple", "pork", "banana", "pork", "rice", "pot", "banana", "apple", "banana"}));
+        할인행사 s = new 할인행사();
+        System.out.println(s.solution(new String[] {"banana", "apple", "rice", "pork", "pot"}, new int[] {3, 2, 2, 2, 1}, new String[] {"chicken", "apple", "apple", "banana", "rice", "apple", "pork", "banana", "pork", "rice", "pot", "banana", "apple", "banana"}));
     }
 }
