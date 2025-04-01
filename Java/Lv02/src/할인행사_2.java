@@ -7,13 +7,16 @@ public class 할인행사_2 {
         HashMap<String, Integer> map = new HashMap<>();
         for (int i=0; i<want.length; i++) {
             map.put(want[i], number[i]);
-        }
+        } 
+        System.out.println(map+"\n");
 
         for (int i=0; i<10; i++) {
             if (map.containsKey(discount[i])) {
                 map.put(discount[i], map.get(discount[i])-1);
+                System.out.println(map);
             }
         }
+        System.out.println("\n"+map.keySet());
         
         if (isMatch(map)) {
             answer++;
