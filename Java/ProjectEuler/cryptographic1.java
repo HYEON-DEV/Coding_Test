@@ -1,8 +1,3 @@
-package Java.ProjectEuler;
-
-import java.util.HashMap;
-import java.util.Map;
-
 /*
 SEND + MORE = MONEY
 각 알파벳은 하나의 숫자를 나타내고, 숫자의 첫 번째 자리에 '0'을 쓸 수는 없습니다.
@@ -16,60 +11,71 @@ ALLEN = K * JEON
 
 위 암호산술의 가능한 모든 답의 좌변 숫자를 더한 값을 제출하세요.
  */
-public class cryptographic1 {
-    static char[] letters = {'S','E','N','D','M','O','R','Y'};
-    static boolean[] used = new boolean[10];
-    static Map<Character,Integer> mapping = new HashMap<>();
 
+package Java.ProjectEuler;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class cryptographic1 {
+    static char[] letters = {'S','Y','N','A','P','O','F','T','W','U'};  // 문제에 사용되는 고유 문자 
+    static boolean[] used = new boolean[10];    // 숫자 사용 여부 체크 (0~9)
+    static Map<Character,Integer> map = new HashMap<>();    // 문자 : 숫자 맵핑
+    static int solutionCount = 0;   // 정답 개수 카운트
+    static int sum = 0;     // 모든 답의 좌변 숫자 더한 값
+
+    /* letters[idx] 문자에 숫자 할당하는 재귀함수 */
     public void solve (int idx) {
+
         // 모든 문자에 숫자 할당하면 계산 시도
         if (idx == letters.length) {
-            int send = getValue("SEND");
-            int more = getValue("MORE");
-            int money = getValue("MONEY");
+            int synap = getValue("SYNAP");
+            int soft = getValue("SOFT");
+            int wants = getValue("WANTS");
+            int you = getValue("YOU");
 
-            System.out.println("SEND = " + send + ", MORE = " + more + ", MONEY = " + money);
-            
-            // 정답이면
-            if (send + more == money) {
-                for (char c : letters) {
-                    System.out.println(c + " = " + mapping.get(c));
-                }
-                System.out.println("SEND + MORE = MONEY");
-                System.out.println(send + " + " + more + " = " + money);
-                System.exit(0);
+            // 정답이면 출력, 합산 
+            if (synap+soft == wants+you) {
+                solutionCount++;
+                sum += synap + soft;
+                System.out.printf("[%d] %d + %d = %d + %d,  sum = %d\n", solutionCount, synap, soft, wants, you, sum);
             }
             return;
         }
 
         // 문자에 0~9 할당해보기
         for ( int i=0; i<10; i++) {
-            char curChar = letters[idx];
-            
+
             // 첫 자리에 0 안됨
-            if ((letters[idx]=='S' || letters[idx]=='M') && i==0) continue;
+            if ((letters[idx]=='S' || letters[idx]=='W' || letters[idx]=='Y') && i==0) continue;
+            // 이미 사용된 숫자는 건너뜀
             if (used[i]) continue;
 
-            mapping.put(letters[idx], i);
+            // 문자에 숫자 할당
+            map.put(letters[idx], i);
             used[i] = true;
+
+            // 다음 문자에 숫자 할당 재귀함수 호출
             solve(idx+1);
+
+            // 원상복귀
             used[i] = false;
-            mapping.remove(letters[idx]);
+            map.remove(letters[idx]);
         }
     }
 
+    /* 문자열을 숫자로 변환 */ 
     public static int getValue (String word) {
         int value = 0;
         for (char c : word.toCharArray()) {
-            value = value*10 + mapping.get(c);
+            value = value*10 + map.get(c);
         }
         return value;
     }
+
     public static void main(String[] args) {
         cryptographic1 c = new cryptographic1();
-        System.out.println("---START---");
-        c.solve(0);
-        System.out.println("가능한 해답이 없습니다.");
+        c.solve(0);     // 첫 문자부터 시작
     }
 
 }
