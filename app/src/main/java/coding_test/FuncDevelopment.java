@@ -1,10 +1,12 @@
-import java.util.Arrays;
+package coding_test;
+
+// import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
-public class 기능개발 {
+public class FuncDevelopment {
 
     public int[] solution(int[] progresses, int[] speeds) {
         Queue<Integer> q = new LinkedList<>();
@@ -21,7 +23,7 @@ public class 기능개발 {
                 if (progresses[i] + speeds[i]*n >= 100) {
                     q.poll();
                     map.put(n, map.getOrDefault(n, 0)+1);
-                    System.out.printf("q: %s, map: %s \n", q, map);
+                    // System.out.printf("q: %s, map: %s \n", q, map);
                     break;
                 } else {
                     n++;
@@ -33,10 +35,10 @@ public class 기능개발 {
         return map.values().stream().mapToInt(Integer::intValue).toArray();
     }
 
-    public static void main(String[] args) {
-        기능개발 s = new 기능개발();
-        System.out.println(Arrays.toString(s.solution(new int[] {93, 30, 55}, new int[] {1, 30, 5})));
-        System.out.println();
-        System.out.println(Arrays.toString(s.solution(new int[] {95, 90, 99, 99, 80, 99}, new int[] {1, 1, 1, 1, 1, 1})));
-    }
+    // public static void main(String[] args) {
+    //     FuncDevelopment s = new FuncDevelopment();
+    //     System.out.println(Arrays.toString(s.solution(new int[] {93, 30, 55}, new int[] {1, 30, 5})));
+    //     System.out.println();
+    //     System.out.println(Arrays.toString(s.solution(new int[] {95, 90, 99, 99, 80, 99}, new int[] {1, 1, 1, 1, 1, 1})));
+    // }
 }

@@ -19,7 +19,7 @@ public class 기능개발 {
         for (int i=0; i<progresses.length; i++) {
             q.add(progresses[i]);
         }
-        // System.out.println(q);
+        System.out.println(q);
 
         int n = 1;
         for (int i=0; i<progresses.length; i++) {
@@ -34,7 +34,7 @@ public class 기능개발 {
                 }
             }
         }
-        // System.out.println(map.values());
+        System.out.println(map.values());
 
         return map.values().stream().mapToInt(Integer::intValue).toArray();
     }
@@ -44,5 +44,6 @@ public class 기능개발 {
         System.out.println(Arrays.toString(s.solution(new int[] {93, 30, 55}, new int[] {1, 30, 5})));
         System.out.println();
         System.out.println(Arrays.toString(s.solution(new int[] {95, 90, 99, 99, 80, 99}, new int[] {1, 1, 1, 1, 1, 1})));
+        // System.out.println(Arrays.toString(s.solution(new int[] {20, 99, 93, 30, 55, 10, 90, 99, 100, 80, 70}, new int[] {5, 10, 1, 1, 30, 5, 1, 1, 1, 1, 1})));
     }
 }

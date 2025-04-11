@@ -1,8 +1,10 @@
+package coding_test;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.List;
 
-public class 기능개발_2 {
+public class FuncDevelopment_2 {
 
     public int[] solution(int[] progresses, int[] speeds) {
         List<Integer> result = new ArrayList<>();
@@ -13,7 +15,7 @@ public class 기능개발_2 {
         for (int i=0; i<n; i++) {
             days[i] = (int) Math.ceil( (100.0-progresses[i]) / speeds[i]);
         }
-        System.out.println("각 작업마다 걸리는 날짜: " + Arrays.toString(days));
+        // System.out.println("각 작업마다 걸리는 날짜: " + Arrays.toString(days));
 
         // 앞에 있는 작업보다 늦게 끝나면 따로 배포, 아니면 같은 날 배포
         int cnt = 1;
@@ -26,19 +28,17 @@ public class 기능개발_2 {
                 cnt = 1;
                 prev = days[i];
             }
-            System.out.printf("prev:  %s,  cnt: %d,  result: %s \n", prev, cnt, result);
         }
         result.add(cnt);
-        System.out.println(result);
+        // System.out.println(result);
         
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    public static void main(String[] args) {
-        기능개발_2 s = new 기능개발_2();
-        System.out.println(Arrays.toString(s.solution(new int[] {93, 30, 55}, new int[] {1, 30, 5})));
-        System.out.println();
-        System.out.println(Arrays.toString(s.solution(new int[] {95, 90, 99, 99, 80, 99}, new int[] {1, 1, 1, 1, 1, 1})));
-        // System.out.println(Arrays.toString(s.solution(new int[] {20, 99, 93, 30, 55, 10, 90, 99, 100, 80, 70}, new int[] {5, 10, 1, 1, 30, 5, 1, 1, 1, 1, 1})));
-    }
+    // public static void main(String[] args) {
+    //     FuncDevelopment_2 s = new FuncDevelopment_2();
+    //     System.out.println(Arrays.toString(s.solution(new int[] {93, 30, 55}, new int[] {1, 30, 5})));
+    //     System.out.println();
+    //     System.out.println(Arrays.toString(s.solution(new int[] {95, 90, 99, 99, 80, 99}, new int[] {1, 1, 1, 1, 1, 1})));
+    // }
 }

@@ -5,8 +5,6 @@
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.8/userguide/building_java_projects.html in the Gradle documentation.
  */
 
-apply plugin: 'java'
-
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'java'
@@ -26,15 +24,6 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
-
-    // https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core
-    testImplementation 'org.openjdk.jmh:jmh-core:1.37'
-
-    // https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-generator-annprocess
-    testImplementation 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
-
-    // https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-generator-bytecode
-    implementation 'org.openjdk.jmh:jmh-generator-bytecode:1.21'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -44,19 +33,11 @@ java {
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'coding_test.App'
-}
-
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
 
-jmh {
-    warmupIterations = 2
-    iterations = 5
-    fork = 0
-    profilers = ["gc"]
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
