@@ -1,40 +1,35 @@
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashMap;
 
-public class 캐시 {
+public class 카카오_캐시_2 {
 
     public int solution(int cacheSize, String[] cities) {
-        if (cacheSize == 0) return 5*cities.length;
+        if (cacheSize==0)   return cities.length*5;
 
-        List<String> cache = new LinkedList<>();
         int time = 0;
 
-        for (String city : cities) {
-            city = city.toLowerCase();
+        LinkedHashMap<String, Boolean> cache = new LinkedHashMap<>(cacheSize, 0.75f, true); // 0.75f is the default load factor
 
-            // DB캐시에 없을 때
-            if (!cache.contains(city)) {    // ⏰O(n)
-                time += 5;
-                cache.add(city);    // ⏰O(1)
-                if (cache.size() > cacheSize) {
-                    cache.remove(0);    // ⏰O(n)
-                }
-                System.out.printf("cache: %s,  time: %d \n", cache, time);
-            } 
-            // DB 캐시에 있을 때
-            else {    
+        for (String city : cities) {    // ⏰O(n)
+            city = city.toLowerCase();  // ⏰O(n)
+
+            if (cache.containsKey(city)) {  // ⏰O(1) 해시기반검색
                 time += 1;
-                cache.remove(city);
-                cache.add(city);
-                System.out.printf("cache: %s,  time: %d \n", cache, time);
+                cache.get(city); // ✅ get/put 데이터 접근시, 그 항목이 가장 뒤로 이동된다 / ⏰O(1)
+            } else {
+                time += 5;
+                if (cache.size() >= cacheSize) {
+                    cache.remove(cache.keySet().iterator().next()); // ⏰O(1)
+                    // ✅ key목록 순서대로 반환  =>  순서대로 순회할 수 있는 반복자 생성  =>  첫번째 key 꺼내기 
+                }
+                cache.put(city, true);  // ⏰O(1)
             }
         }
-        
+
         return time;
     }
 
     public static void main(String[] args) {
-        캐시 s = new 캐시();
+        카카오_캐시_2 s = new 카카오_캐시_2();
         System.out.println(s.solution(3, new String[] {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"}));
         System.out.println();
         System.out.println(s.solution(3, new String[] {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"}));
