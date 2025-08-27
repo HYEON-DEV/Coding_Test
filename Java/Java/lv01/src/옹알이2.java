@@ -1,7 +1,4 @@
-package Java.Lv01.src;
-
-import java.util.ArrayList;
-import java.util.List;
+package Java.Java.lv01.src;
 
 public class 옹알이2 {
     public int solution(String[] babbling) {
